@@ -6,6 +6,12 @@ import win32com.client
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 from datetime import datetime
+from dotenv import load_dotenv
+
+os.system('chcp 65001')
+# .env 파일 로드
+load_dotenv()
+slack_api = os.environ['SLACK_API']
 
 #CREON Plus 공통 Object
 cpStatus = win32com.client.Dispatch('CpUtil.CpCybos')  #시스템 상태 정보
@@ -33,7 +39,7 @@ def check_creon_system():
 
 
 #슬랙
-slack_token = 'xoxb-7370805081367-7387853963652-cDeIJmoENIp3yNg0Flcu1EW4'
+slack_token = slack_api
 client = WebClient(token=slack_token)
 
 
@@ -136,7 +142,7 @@ def get_stock_balance(code):
 if __name__ == '__main__':
     # crs = check_creon_system()
     # print(crs)
-    # dbgout('This is test log.')
+    dbgout('This is test log.2')
     print(get_stock_balance('A305080'))
 
     # print(get_ohkc('A305080', 10))

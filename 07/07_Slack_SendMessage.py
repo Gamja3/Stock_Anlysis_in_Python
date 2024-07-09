@@ -1,7 +1,15 @@
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
+from dotenv import load_dotenv
+import os
 
-slack_token = 'xoxb-7370805081367-7387853963652-cDeIJmoENIp3yNg0Flcu1EW4'
+os.system('chcp 65001')
+# .env 파일 로드
+load_dotenv()
+
+slack_api = os.environ['SLACK_API']
+
+slack_token = slack_api
 client = WebClient(token=slack_token)
 
 markdown_text= '''
@@ -20,8 +28,8 @@ attach_dict = dict(color='#ff0000', author_name='INVESTAR',
 
 attach_list = [attach_dict]
 
-response = client.auth_test()
-print(response)
+# response = client.auth_test()
+# print(response)
 
 
 try:
