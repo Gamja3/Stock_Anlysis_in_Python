@@ -1,7 +1,7 @@
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
-slack_token = 'xoxb-7370805081367-7387853963652-dgvGH6o4nTe0uum0dYnbXXS1'
+slack_token = 'xoxb-7370805081367-7387853963652-cDeIJmoENIp3yNg0Flcu1EW4'
 client = WebClient(token=slack_token)
 
 markdown_text= '''
@@ -19,6 +19,10 @@ attach_dict = dict(color='#ff0000', author_name='INVESTAR',
                     image_url='https://ssl.pstatic.net/imgstock/chart3/day/KOSPI.png')
 
 attach_list = [attach_dict]
+
+response = client.auth_test()
+print(response)
+
 
 try:
     response = client.chat_postMessage(
