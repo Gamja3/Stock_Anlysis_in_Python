@@ -27,5 +27,5 @@ time.sleep(5)
 
 # 애플리케이션 시작
 app = application.Application()
-app.start(f'C:\\CREON\\STARTER\\coStarter.exe /prj:cp /id:{creon_id} /pwd:{creon_password} /pwdcert:{creon_cert_password} /autostart/')
+app.start(f'C:\\CREON\\STARTER\\coStarter.exe /prj:cp /id:{creon_id} /pwd:{creon_password} /pwdcert:{creon_cert_password} /autostart')
 time.sleep(60)
